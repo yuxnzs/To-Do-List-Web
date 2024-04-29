@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  /* background: linear-gradient(135deg, #153677, #4e085f); */
+  background-image: url(./images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding-bottom: 50px;
+}
+
+.top {
+  width: 100%;
+  background-color: white;
+  /* auto代表右邊距（right margin）和左邊距（left margin）自動調整 */
+  padding: 1px 20px;
+}
+
+.top h2 {
+  color: #002765;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  padding-top: 15px;
+}
+
+.top h2 img {
+  width: 30px;
+  margin-left: 10px;
+}
+
+.row {
+  position: relative;
+  width: 60%;
+  background-color: #edeef0;
+  border-radius: 30px;
+  padding-left: 20px;
+  margin: 15px auto 15px auto;
+}
+
+input {
+  width: 80%;
+  height: 60px;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+button {
+  position: absolute;
+  right: 0;
+  border: none;
+  outline: none;
+  width: 100px;
+  height: 100%;
+  background-color: #698bcb;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.5s;
+  cursor: pointer;
+  border-radius: 40px;
+
+  /* 用來設定按鈕消失動畫 */
+  opacity: 1;
+  visibility: visible;
+}
+
+button:hover {
+  background-color: #869fcf;
+}
+
+.bottom {
+  max-width: 540px;
+  background-color: rgba(255, 255, 255, 0.72);
+  /* auto代表右邊距（right margin）和左邊距（left margin）自動調整 */
+  margin: 50px auto 0;
+  padding: 30px;
+  border-radius: 10px;
+  transition: max-width 0.5s;
+}
+
+@media (max-width: 540px) {
+  button {
+    width: 80px;
+    font-size: 15px;
+  }
+  .bottom {
+    max-width: 440px;
+  }
+}
+
+@media (max-width: 460px) {
+  button {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .bottom {
+    max-width: 340px;
+  }
+}
+
+ul li {
+  list-style: none;
+  font-size: 17px;
+  padding: 12px 8px 15px 50px;
+  /* 使用者無法選取文字 */
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+}
+
+/* 偽元素，在不改變HTML結構的情況下，增加額外的裝飾或內容 */
+ul li::before {
+  content: "";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background-image: url(./images/unchecked.png);
+  background-size: cover;
+  background-position: center;
+  top: 12px;
+  left: 8px;
+}
+
+ul li:hover::before {
+  background-image: url(./images/checked.png);
+  opacity: 0.5; /* 設置半透明效果 */
+}
+
+ul li.checked:hover::before {
+  background-image: url(./images/checked.png);
+  opacity: 1; /* 切回原本效果 */
+}
+
+ul li.checked {
+  color: #555;
+  text-decoration: line-through;
+}
+
+ul li.checked::before {
+  background-image: url(./images/checked.png);
+}
+
+ul li span {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  color: #555;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+ul li span:hover {
+  background-color: #edeef0;
+}
+
+ul li span:hover ~ ul li::before {
+  background-image: url(./images/checked.png);
+  opacity: 0; /* 切回原本效果 */
+}
